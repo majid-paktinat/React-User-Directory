@@ -82,7 +82,7 @@ function App() {
               <div class="row">
                 <div class="col-12">
                   <label for="usernameF">Filter by UserName : </label>
-                  <input type="text" id="usernameF" value={filterValue} onChange={changefilter} autofocus></input>
+                  <input type="text" id="usernameF" value={filterValue} onChange={changefilter} autofocus="true"></input>
                 </div>
               </div>
             </div>
