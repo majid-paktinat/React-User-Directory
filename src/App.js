@@ -3,28 +3,31 @@ import users from "./users.json";
 
 function App() {
 
-  const [filterValue, setFilterValue] = useState("");
+  var [filterValue, setFilterValue] = useState("");
   var [newlist, setNewlist] = useState([]); 
-  const [sortlink, setSortlink] = useState('id');
+  var [sortlink, setSortlink] = useState('id');
 
   useEffect( function(){
     setNewlist(users)
   }, [] ); // this will be called first time (at Mount)
   
+  
+  // function setFilterValueWrapper(input){
+  //   filterValue = input;
+  //   console.log("FFFFFFF");
+  //   setFilterValue("input"); // if you have anything to do make a wrapper function and inside it call the real setter!
+  // }
+
   function changefilter(event){
-    
-    
-      // function setFilterValue(input){
-      //   filterValue = input;
-      // };
-      setFilterValue(event.target.value);
-
-
-      // LESSON : Why these two are not same ? (unless we write our own SETTER)
       const newInput = event.target.value;
-      console.clear();
+      
+      //setFilterValueWrapper(newInput);
+      //setFilterValue(newInput);
+
+      // LESSON : Why these two are not same ? because setter will be called after render finishes!
       console.log("new Input length: " + newInput.length + " and new input: " + newInput);
       console.log("filter value length is: " + filterValue.length + " and filter new value: "+filterValue); 
+      console.log("---------------------");
 
     if (event.target.value.length > 1) {
       setNewlist(users.filter(item=>item.username.toLowerCase().indexOf(event.target.value.toLowerCase())===0))
@@ -64,6 +67,7 @@ function App() {
         ? b[key].toUpperCase() : b[key];
   
       let comparison = 0;
+      console.log("Test");
       if (varA > varB) {
         comparison = 1;
       } else if (varA < varB) {
