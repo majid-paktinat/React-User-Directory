@@ -22,7 +22,7 @@ function App() {
       const newInput = event.target.value;
       
       //setFilterValueWrapper(newInput);
-      //setFilterValue(newInput);
+      setFilterValue(newInput);
 
       // LESSON : Why these two are not same ? because setter will be called after render finishes!
       console.log("new Input length: " + newInput.length + " and new input: " + newInput);
